@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>StarBoy League Season 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b1020;
+    --card: #121933;
+    --text: #f4f7ff;
+    --muted: #9fb0d8;
+    --accent: #3e63ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: linear-gradient(180deg, #0b1020 0%, #0a0f1f 100%);
+    color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  }
+  header { padding: 32px 24px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  h1 { margin: 0; font-size: 32px; letter-spacing: .5px; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .card { background: var(--card); border:1px solid rgba(255,255,255,.06); border-radius:16px; padding:16px; }
+  .table { width:100%; border-collapse: collapse; }
+  .table th, .table td { padding:10px 12px; border-bottom:1px solid rgba(255,255,255,.06); text-align:left; font-size:14px; }
+  .table th { color: var(--muted); }
+  footer { text-align:center; color: var(--muted); padding: 24px; font-size: 13px; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>StarBoy League — Season 3</h1>
+    <div>Dashboards & Leaderboards</div>
+  </header>
+  <main class="wrap">
+    <section class="grid">
+      <div class="card">
+        <h2>Expert Dashboard (name shows picks in brackets, 🏆 = top)</h2>
+        <table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Rank</th>
+      <th>Expert</th>
+      <th>Expert Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>nateevs (Michael Olise, Hugo Ekitike, Lamine Yamal, Cole Palmer, Jude Bellingham) 🏆</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Light Fc (Cole Palmer, Kenan Yıldız, Lamine Yamal, Désiré Doué, Julián Álvarez)</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>VicThory (Cole Palmer, Lamine Yamal, Mason Greenwood, Benjamin Šeško, Loïs Openda)</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Capdan21 (Cole Palmer, Désiré Doué, Bradley Barcola, Lamine Yamal, Michael Olise)</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>ouzo1 (Benjamin Šeško, Jamal Musiala, Kenan Yıldız, Nuno Mendez, Lamine Yamal)</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>iamoyindamola (Mason Greenwood, Michael Olise, Lamine Yamal, Kenan Yıldız, Bukayo Saka)</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Bombblacks (Lamine Yamal, Nick Woltemade, Matheus Cunha, Mason Greenwood, Ademola Lookman)</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Trevor012 (Benjamin Šeško, Mason Greenwood, Lamine Yamal, Randal Kolo Muani, Rafael Leão)</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Amethyst101 (Cole Palmer, Désiré Doué, Jonathan Davids, Lamine Yamal, Jonathan Burkardt)</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>StarchAndBanga (Cole Palmer, Lamine Yamal, Michael Olise, Désiré Doué, Moise Kean)</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Enzo5 (Michael Olise, Lamine Yamal, Kenan Yıldız, Mason Greenwood)</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>ForValour (João Pedro, Lamine Yamal, Mason Greenwood, Michael Olise, Francesco Camarda)</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Realtord43 (Jonathan David, Lamine Yamal, Nick Woltemade, Désiré Doué, João Pedro)</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Silentgroper (Alexander Isak, Lamine Yamal, Désiré Doué, Kenan Yıldız, Karim Adeyemi)</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>MorataFC (Cole Palmer, Nico Williams, Bradley Barcola, Michael Olise, Matías Soulé)</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Gucciboy (Cole Palmer, Mason Greenwood, Michael Olise, Rafael Leão, Julián Álvarez)</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Godx (Phil Foden, Julián Álvarez, Loïs Openda, Mason Greenwood, Rafael Leão)</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Zeusis (Michael Olise, Désiré Doué, Cole Palmer, Désiré Doué, Julián Álvarez)</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>timbros (Julián Álvarez, Khvicha Kvaratskhelia, Kenan Yıldız, Michael Olise, Morgan Rogers)</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>SportsWeb (Cole Palmer, Vinícius Júnior, Michael Olise, Rafael Leão, Mason Greenwood)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>drisham (Mason Greenwood, Michael Olise, Arda Güler, Kenan Yıldız, Cole Palmer)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Kimbeast (Bradley Barcola, Cole Palmer, Moise Kean, Rómulo Cardoso, Oihan Sancet)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>andrewbaba44 (Jonathan Burkardt, Alex Baena, Florian Wirtz, Mason Greenwood, Moise Kean)</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Amoto94 (Michael Olise, Cole Palmer, Ousmane Dembélé, Endrick Felipe, Ange-Yoan Bonny)</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Capaldi (Florian Wirtz, Folarin Biereth, Michael Olise, Vinícius Júnior, Lorenzo Lucca)</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Kushercain (Estêvão Willian, Désiré Doué, Michael Olise, Arda Güler, Kenan Yıldız)</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+      <div class="card">
+        <h2>Player Dashboard (⭐ = top)</h2>
+        <table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Rank</th>
+      <th>Player Name</th>
+      <th>Club</th>
+      <th>NPG</th>
+      <th>PG</th>
+      <th>Assist</th>
+      <th>MOTM</th>
+      <th>FM</th>
+      <th>Total Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Lamine Yamal ⭐</td>
+      <td>Barcelona</td>
+      <td>20</td>
+      <td>0</td>
+      <td>10</td>
+      <td>5</td>
+      <td>5</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Hugo Ekitike</td>
+      <td>Liverpool</td>
+      <td>20</td>
+      <td>0</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Julián Álvarez</td>
+      <td>Altetico</td>
+      <td>20</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Nico Williams</td>
+      <td>Atletic Club</td>
+      <td>0</td>
+      <td>15</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Nuno Mendez</td>
+      <td>PSG</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Bradley Barcola</td>
+      <td>PSG</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Bukayo Saka</td>
+      <td>Arsenal</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Cole Palmer</td>
+      <td>Chelsea</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Mason Greenwood</td>
+      <td>Marseille</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Matheus Cunha</td>
+      <td>Manchester United</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Morgan Rogers</td>
+      <td>Aston Villa</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Alex Baena</td>
+      <td>Atletico Madrid</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Alexander Isak</td>
+      <td>Newcastle</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Ange-Yoan Bonny</td>
+      <td>Inter Milan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Arda Güler</td>
+      <td>Read Madrid</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Benjamin Šeško</td>
+      <td>Manchester United</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Désiré Doué</td>
+      <td>PSG</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Endrick Felipe</td>
+      <td>Read Madrid</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Estêvão Willian</td>
+      <td>Chelsea</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Florian Wirtz</td>
+      <td>Liverpool</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Francesco Camarda</td>
+      <td>Leece</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Jamal Musiala</td>
+      <td>Bayern</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>João Pedro</td>
+      <td>Chelsea</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Jonathan Burkardt</td>
+      <td>Eintracht</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Jonathan David</td>
+      <td>Juventus</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Jude Bellingham</td>
+      <td>Read Madrid</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Karim Adeyemi</td>
+      <td>Borussia</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Kenan Yıldız</td>
+      <td>Juventus</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Khvicha Kvaratskhelia</td>
+      <td>PSG</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Loïs Openda</td>
+      <td>RB Leipzig</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Lorenzo Lucca</td>
+      <td>Napoli</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Matías Soulé</td>
+      <td>Roma</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Michael Olise</td>
+      <td>Bayern</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Mika Biereth</td>
+      <td>Monaco</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Moise Kean</td>
+      <td>Fiorentina</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Nick Woltemade</td>
+      <td>Stuttgart</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Oihan Sancet</td>
+      <td>Atletic Club</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>Ousmane Dembélé</td>
+      <td>PSG</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Phil Foden</td>
+      <td>Manchester City</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Rafael Leão</td>
+      <td>AC Milan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Randal Kolo Muani</td>
+      <td>Juventus</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Rómulo Cardoso</td>
+      <td>RB Leipzig</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>Vinícius Júnior</td>
+      <td>Read Madrid</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+    <section class="grid" style="margin-top: 24px;">
+      <div class="card">
+        <h2>Expert Leaderboard</h2>
+        <table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Rank</th>
+      <th>Expert</th>
+      <th>Expert Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>nateevs (Michael Olise, Hugo Ekitike, Lamine Yamal, Cole Palmer, Jude Bellingham) 🏆</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Light Fc (Cole Palmer, Kenan Yıldız, Lamine Yamal, Désiré Doué, Julián Álvarez)</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>VicThory (Cole Palmer, Lamine Yamal, Mason Greenwood, Benjamin Šeško, Loïs Openda)</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Capdan21 (Cole Palmer, Désiré Doué, Bradley Barcola, Lamine Yamal, Michael Olise)</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>ouzo1 (Benjamin Šeško, Jamal Musiala, Kenan Yıldız, Nuno Mendez, Lamine Yamal)</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>iamoyindamola (Mason Greenwood, Michael Olise, Lamine Yamal, Kenan Yıldız, Bukayo Saka)</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Bombblacks (Lamine Yamal, Nick Woltemade, Matheus Cunha, Mason Greenwood, Ademola Lookman)</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Trevor012 (Benjamin Šeško, Mason Greenwood, Lamine Yamal, Randal Kolo Muani, Rafael Leão)</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Amethyst101 (Cole Palmer, Désiré Doué, Jonathan Davids, Lamine Yamal, Jonathan Burkardt)</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>StarchAndBanga (Cole Palmer, Lamine Yamal, Michael Olise, Désiré Doué, Moise Kean)</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Enzo5 (Michael Olise, Lamine Yamal, Kenan Yıldız, Mason Greenwood)</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>ForValour (João Pedro, Lamine Yamal, Mason Greenwood, Michael Olise, Francesco Camarda)</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Realtord43 (Jonathan David, Lamine Yamal, Nick Woltemade, Désiré Doué, João Pedro)</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Silentgroper (Alexander Isak, Lamine Yamal, Désiré Doué, Kenan Yıldız, Karim Adeyemi)</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>MorataFC (Cole Palmer, Nico Williams, Bradley Barcola, Michael Olise, Matías Soulé)</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Gucciboy (Cole Palmer, Mason Greenwood, Michael Olise, Rafael Leão, Julián Álvarez)</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Godx (Phil Foden, Julián Álvarez, Loïs Openda, Mason Greenwood, Rafael Leão)</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Zeusis (Michael Olise, Désiré Doué, Cole Palmer, Désiré Doué, Julián Álvarez)</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>timbros (Julián Álvarez, Khvicha Kvaratskhelia, Kenan Yıldız, Michael Olise, Morgan Rogers)</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>SportsWeb (Cole Palmer, Vinícius Júnior, Michael Olise, Rafael Leão, Mason Greenwood)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>drisham (Mason Greenwood, Michael Olise, Arda Güler, Kenan Yıldız, Cole Palmer)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Kimbeast (Bradley Barcola, Cole Palmer, Moise Kean, Rómulo Cardoso, Oihan Sancet)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>andrewbaba44 (Jonathan Burkardt, Alex Baena, Florian Wirtz, Mason Greenwood, Moise Kean)</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Amoto94 (Michael Olise, Cole Palmer, Ousmane Dembélé, Endrick Felipe, Ange-Yoan Bonny)</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Capaldi (Florian Wirtz, Folarin Biereth, Michael Olise, Vinícius Júnior, Lorenzo Lucca)</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Kushercain (Estêvão Willian, Désiré Doué, Michael Olise, Arda Güler, Kenan Yıldız)</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+      <div class="card">
+        <h2>Player Leaderboard</h2>
+        <table class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Rank</th>
+      <th>Player Name</th>
+      <th>Club</th>
+      <th>NPG</th>
+      <th>PG</th>
+      <th>Assist</th>
+      <th>YC</th>
+      <th>RC</th>
+      <th>MOTM</th>
+      <th>FM</th>
+      <th>Total Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Lamine Yamal ⭐</td>
+      <td>Barcelona</td>
+      <td>20</td>
+      <td>0</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Hugo Ekitike</td>
+      <td>Liverpool</td>
+      <td>20</td>
+      <td>0</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Julián Álvarez</td>
+      <td>Altetico</td>
+      <td>20</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>0</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Nico Williams</td>
+      <td>Atletic Club</td>
+      <td>0</td>
+      <td>15</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Nuno Mendez</td>
+      <td>PSG</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Bradley Barcola</td>
+      <td>PSG</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Bukayo Saka</td>
+      <td>Arsenal</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Cole Palmer</td>
+      <td>Chelsea</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Mason Greenwood</td>
+      <td>Marseille</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Matheus Cunha</td>
+      <td>Manchester United</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Morgan Rogers</td>
+      <td>Aston Villa</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Alex Baena</td>
+      <td>Atletico Madrid</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Alexander Isak</td>
+      <td>Newcastle</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Ange-Yoan Bonny</td>
+      <td>Inter Milan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Arda Güler</td>
+      <td>Read Madrid</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Benjamin Šeško</td>
+      <td>Manchester United</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Désiré Doué</td>
+      <td>PSG</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Endrick Felipe</td>
+      <td>Read Madrid</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Estêvão Willian</td>
+      <td>Chelsea</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Florian Wirtz</td>
+      <td>Liverpool</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Francesco Camarda</td>
+      <td>Leece</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Jamal Musiala</td>
+      <td>Bayern</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>João Pedro</td>
+      <td>Chelsea</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Jonathan Burkardt</td>
+      <td>Eintracht</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Jonathan David</td>
+      <td>Juventus</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Jude Bellingham</td>
+      <td>Read Madrid</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Karim Adeyemi</td>
+      <td>Borussia</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Kenan Yıldız</td>
+      <td>Juventus</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Khvicha Kvaratskhelia</td>
+      <td>PSG</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Loïs Openda</td>
+      <td>RB Leipzig</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Lorenzo Lucca</td>
+      <td>Napoli</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Matías Soulé</td>
+      <td>Roma</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Michael Olise</td>
+      <td>Bayern</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Mika Biereth</td>
+      <td>Monaco</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Moise Kean</td>
+      <td>Fiorentina</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Nick Woltemade</td>
+      <td>Stuttgart</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Oihan Sancet</td>
+      <td>Atletic Club</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>Ousmane Dembélé</td>
+      <td>PSG</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Phil Foden</td>
+      <td>Manchester City</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Rafael Leão</td>
+      <td>AC Milan</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Randal Kolo Muani</td>
+      <td>Juventus</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Rómulo Cardoso</td>
+      <td>RB Leipzig</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>Vinícius Júnior</td>
+      <td>Read Madrid</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </section>
+  </main>
+  <footer>Scoring source of truth: the sheet's Total column per player; expert points = sum of their players' totals.</footer>
+</body>
+</html>
