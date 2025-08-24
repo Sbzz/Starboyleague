@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarBoy League Season 3 Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: "⚽";
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        .header::after {
+            content: "🏆";
+            position: absolute;
+            top: 10px;
+            right: 30px;
+            font-size: 2rem;
+            animation: bounce 2s infinite reverse;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 15px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-tab.active {
+            background: white;
+            border-bottom-color: #ff6b6b;
+            color: #ff6b6b;
+        }
+
+        .nav-tab:hover {
+            background: #e9ecef;
+        }
+
+        .tab-content {
+            padding: 30px;
+            min-height: 600px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .trophy {
+            color: #ffd700;
+            font-size: 1.8rem;
+            animation: rotate 3s linear infinite;
+        }
+
+        .star {
+            color: #ff6b6b;
+            font-size: 1.8rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .leaderboard {
+            width: 100%;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .leaderboard-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .leaderboard-item:first-child {
+            background: linear-gradient(135deg, #ffd700, #ffed4a);
+            border-left-color: #f39c12;
+        }
+
+        .leaderboard-item:nth-child(2) {
+            background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+            border-left-color: #95a5a6;
+        }
+
+        .leaderboard-item:nth-child(3) {
+            background: linear-gradient(135deg, #cd7f32, #d4af37);
+            border-left-color: #d35400;
+        }
+
+        .player-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .rank {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #666;
+            min-width: 30px;
+        }
+
+        .name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .details {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .points {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #ff6b6b;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .stats-table th,
+        .stats-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stats-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+            position: sticky;
+            top: 0;
+        }
+
+        .stats-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .league-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 8px;
+        }
+
+        .premier-league { background: #38003c; color: white; }
+        .la-liga { background: #004e9c; color: white; }
+        .serie-a { background: #004e9c; color: white; }
+        .bundesliga { background: #d20515; color: white; }
+        .ligue-1 { background: #004e9c; color: white; }
+
+        .scoring-info {
+            background: #e8f4fd;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .scoring-title {
+            font-weight: 600;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .scoring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .scoring-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .refresh-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>StarBoy League</h1>
+            <p class="subtitle">Season 3 Championship Dashboard</p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('expert-dashboard')">Expert Dashboard</button>
+            <button class="nav-tab" onclick="showTab('player-dashboard')">Player Dashboard</button>
+            <button class="nav-tab" onclick="showTab('expert-leaderboard')">Expert Rankings</button>
+            <button class="nav-tab" onclick="showTab('player-leaderboard')">Player Rankings</button>
+        </div>
+
+        <div class="tab-content">
+            <div class="refresh-note">
+                📊 <strong>Stats Update Notice:</strong> Player statistics are currently set to zero. 
+                Use the FotMob links in the Excel file to scrape current 2025-26 season stats for accurate scoring.
+            </div>
+
+            <div class="scoring-info">
+                <div class="scoring-title">🏆 Scoring System</div>
+                <div class="scoring-grid">
+                    <div class="scoring-item"><span>Non-Penalty Goals (NPG)</span><span>+20 pts</span></div>
+                    <div class="scoring-item"><span>Penalty Goals (PG)</span><span>+15 pts</span></div>
+                    <div class="scoring-item"><span>Assists</span><span>+10 pts</span></div>
+                    <div class="scoring-item"><span>90 Minutes Played (FM)</span><span>+5 pts</span></div>
+                    <div class="scoring-item"><span>Man of the Match (MOTM)</span><span>+5 pts</span></div>
+                    <div class="scoring-item"><span>Yellow Card (YC)</span><span>-5 pts</span></div>
+                    <div class="scoring-item"><span>Red Card (RC)</span><span>-10 pts</span></div>
+                </div>
+            </div>
+
+            <!-- Expert Dashboard Tab -->
+            <div id="expert-dashboard" class="tab">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h2 class="card-title">
+                            <span class="trophy">🏆</span>
+                            Top Expert Champion
+                        </h2>
+                        <div id="top-expert" class="leaderboard">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h2 class="card-title">
+                            ⭐ Expert Quick Stats
+                        </h2>
+                        <div id="expert-stats">
+                            <div class="leaderboard-item">
+                                <span>Total Experts</span>
+                                <span class="points" id="total-experts">32</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span>Average Score</span>
+                                <span class="points" id="avg-expert-score">0</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span>Highest Score</span>
+                                <span class="points" id="highest-expert-score">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h2 class="card-title">🏆 Top 10 Expert Rankings</h2>
+                    <div id="top-experts-list" class="leaderboard">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Player Dashboard Tab -->
+            <div id="player-dashboard" class="tab hidden">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h2 class="card-title">
+                            <span class="star">⭐</span>
+                            Top Player Champion
+                        </h2>
+                        <div id="top-player" class="leaderboard">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h2 class="card-title">
+                            📊 Player Quick Stats
+                        </h2>
+                        <div id="player-stats">
+                            <div class="leaderboard-item">
+                                <span>Total Players</span>
+                                <span class="points" id="total-players">52</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span>Average Score</span>
+                                <span class="points" id="avg-player-score">0</span>
+                            </div>
+                            <div class="leaderboard-item">
+                                <span>Highest Score</span>
+                                <span class="points" id="highest-player-score">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h2 class="card-title">⭐ Top 10 Player Rankings</h2>
+                    <div id="top-players-list" class="leaderboard">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert Leaderboard Tab -->
+            <div id="expert-leaderboard" class="tab hidden">
+                <div class="dashboard-card">
+                    <h2 class="card-title">👑 Complete Expert Leaderboard</h2>
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Expert</th>
+                                <th>Selected Players</th>
+                                <th>Total Points</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expert-leaderboard-table">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Player Leaderboard Tab -->
+            <div id="player-leaderboard" class="tab hidden">
+                <div class="dashboard-card">
+                    <h2 class="card-title">🌟 Complete Player Leaderboard</h2>
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Player</th>
+                                <th>Club</th>
+                                <th>League</th>
+                                <th>NPG</th>
+                                <th>PG</th>
+                                <th>Assists</th>
+                                <th>MOTM</th>
+                                <th>FM</th>
+                                <th>YC</th>
+                                <th>RC</th>
+                                <th>Total Points</th>
+                            </tr>
+                        </thead>
+                        <tbody id="player-leaderboard-table">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data structure - in real implementation, this would come from the Excel data
+        const experts = [
+            {
+                name: "Enzo5",
+                selectedPlayers: ["Cole Palmer", "Lamine Yamal", "Kenan Yıldız", "Michael Olise", "Mason Greenwood"],
+                totalPoints: 0
+            },
+            {
+                name: "drisham",
+                selectedPlayers: ["Cole Palmer", "Arda Güler", "Kenan Yıldız", "Michael Olise", "Mason Greenwood"],
+                totalPoints: 0
+            },
+            {
+                name: "Gucciboy",
+                selectedPlayers: ["Cole Palmer", "Julián Álvarez", "Ange-Yoan Bonny", "Michael Olise", "Mason Greenwood"],
+                totalPoints: 0
+            },
+            {
+                name: "VicThory",
+                selectedPlayers: ["Mohammed Kudus", "Lamine Yamal", "Nico Paz", "Loïs Openda", "Mason Greenwood"],
+                totalPoints: 0
+            },
+            {
+                name: "Capdan21",
+                selectedPlayers: ["Cole Palmer", "Lamine Yamal", "Charles De Ketelaere", "Michael Olise", "Bradley Barcola"],
+                totalPoints: 0
+            },
+            {
+                name: "timbros",
+                selectedPlayers: ["Morgan Rogers", "Julián Álvarez", "Kenan Yıldız", "Michael Olise", "Khvicha Kvaratskhelia"],
+                totalPoints: 0
+            },
+            {
+                name: "ForValour",
+                selectedPlayers: ["João Pedro", "Lamine Yamal", "Francesco Camarda", "Michael Olise", "Mason Greenwood"],
+                totalPoints: 0
+            },
+            {
+                name: "Zeusis",
+                selectedPlayers: ["Cole Palmer", "Julián Álvarez", "Charles De Ketelaere", "Michael Olise", "Désiré Doué"],
+                totalPoints: 0
+            },
+            {
+                name: "Silentgroper",
+                selectedPlayers: ["Alexander Isak", "Lamine Yamal", "Kenan Yıldız", "Karim Adeyemi", "Désiré Doué"],
+                totalPoints: 0
+            },
+            {
+                name: "Lucci",
+                selectedPlayers: ["Cole Palmer", "Lamine Yamal", "Nico Paz", "Michael Olise", "Mason Greenwood"],
+                totalPoints: 0
+            },
+            {
+                name: "D'Boss",
+                selectedPlayers: ["Bukayo Saka", "Lamine Yamal", "Charles De Ketelaere", "Michael Olise", "Mason Greenwood"],
+                totalPoints: 0
+            },
+            {
+                name: "Seun",
+                selectedPlayers: ["Cole Palmer", "Lamine Yamal", "Kenan Yıldız", "Michael Olise", "Désiré Doué"],
+                totalPoints: 0
+            },
+            {
+                name: "Akimanzi",
+                selectedPlayers: ["Cole Palmer", "Lamine Yamal", "Benjamin Šeško", "Michael Olise", "Mason Greenwood"],
+                totalPoints: 0
+            },
+            {
+                name: "D'Andre",
+                selectedPlayers: ["Cole Palmer", "Lamine Yamal", "Nico Paz", "Michael Olise", "Mason Greenwood"],
+                totalPoints: 0
+            },
+            {
+                name: "Henry",
+                selectedPlayers: ["Cole Palmer", "Lamine Yamal", "Kenan Yıldız", "Michael Olise", "Mason Greenwood"],
+                totalPoints: 0
+            },
+            {
+                name: "Oma'jr",
+                selectedPlayers: ["Cole Palmer", "Arda Güler", "Kenan Yıldız", "Michael Olise", "Mason Greenwood"],
+                totalPoints: 0
+            }
+        ];
+
+        const players = [
+            {
+                name: "Alex Baena",
+                age: 24,
+                club: "Atletico Madrid",
+                league: "La Liga",
+                npg: 0,
+                pg: 0,
+                assists: 0,
+                yc: 0,
+                rc: 0,
+                motm: 0,
+                fm: 0,
+                points: 0
+            },
+            {
+                name: "Alexander Isak",
+                age: 25,
+                club: "Newcastle",
+                league: "Premier League",
+                npg: 0,
+                pg: 0,
+                assists: 0,
+                yc: 0,
+                rc: 0,
+                motm: 0,
+                fm: 0,
+                points: 0
+            },
+            {
+                name: "Cole Palmer",
+                age: 22,
+                club: "Chelsea",
+                league: "Premier League",
+                npg: 0,
+                pg: 0,
+                assists: 0,
+                yc: 0,
+                rc: 0,
+                motm: 0,
+                fm: 0,
+                points: 0
+            },
+            {
+                name: "Lamine Yamal",
+                age: 17,
+                club: "Barcelona",
+                league: "La Liga",
+                npg: 0,
+                pg: 0,
+                assists: 0,
+                yc: 0,
+                rc: 0,
+                motm: 0,
+                fm: 0,
+                points: 0
+            },
+            {
+                name: "Michael Olise",
+                age: 22,
+                club: "Bayern Munich",
+                league: "Bundesliga",
+                npg: 0,
+                pg: 0,
+                assists: 0,
+                yc: 0,
+                rc: 0,
+                motm: 0,
+                fm: 0,
+                points: 0
+            }
+        ];
+
+        function getLeagueBadge(league) {
+            const badges = {
+                "Premier League": "premier-league",
+                "La Liga": "la-liga",
+                "Serie A": "serie-a",
+                "Bundesliga": "bundesliga",
+                "Ligue 1": "ligue-1"
+            };
+            return badges[league] || "premier-league";
+        }
+
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            
+            // Remove active class from all nav tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabId).classList.remove('hidden');
+            
+            // Add active class to clicked nav tab
+            event.target.classList.add('active');
+        }
+
+        function populateExpertDashboard() {
+            const sortedExperts = [...experts].sort((a, b) => b.totalPoints - a.totalPoints);
+            
+            // Top expert
+            const topExpert = sortedExperts[0];
+            document.getElementById('top-expert').innerHTML = `
+                <div class="leaderboard-item">
+                    <div class="player-info">
+                        <span class="rank">👑</span>
+                        <div>
+                            <div class="name">${topExpert.name}</div>
+                            <div class="details">(${topExpert.selectedPlayers.join(', ')})</div>
+                        </div>
+                    </div>
+                    <span class="points">${topExpert.totalPoints} pts</span>
+                </div>
+            `;
+
+            // Top 10 experts
+            const top10Experts = sortedExperts.slice(0, 10);
+            document.getElementById('top-experts-list').innerHTML = top10Experts.map((expert, index) => `
+                <div class="leaderboard-item">
+                    <div class="player-info">
+                        <span class="rank">${index + 1}</span>
+                        <div>
+                            <div class="name">${expert.name}</div>
+                            <div class="details">(${expert.selectedPlayers.join(', ')})</div>
+                        </div>
+                    </div>
+                    <span class="points">${expert.totalPoints} pts</span>
+                </div>
+            `).join('');
+
+            // Expert stats
+            const totalExperts = experts.length;
+            const avgScore = totalExperts > 0 ? Math.round(experts.reduce((sum, e) => sum + e.totalPoints, 0) / totalExperts) : 0;
+            const highestScore = Math.max(...experts.map(e => e.totalPoints));
+
+            document.getElementById('total-experts').textContent = totalExperts;
+            document.getElementById('avg-expert-score').textContent = avgScore;
+            document.getElementById('highest-expert-score').textContent = highestScore;
+        }
+
+        function populatePlayerDashboard() {
+            const sortedPlayers = [...players].sort((a, b) => b.points - a.points);
+            
+            // Top player
+            const topPlayer = sortedPlayers[0];
+            document.getElementById('top-player').innerHTML = `
+                <div class="leaderboard-item">
+                    <div class="player-info">
+                        <span class="rank">⭐</span>
+                        <div>
+                            <div class="name">${topPlayer.name}</div>
+                            <div class="details">${topPlayer.club} <span class="league-badge ${getLeagueBadge(topPlayer.league)}">${topPlayer.league}</span></div>
+                            <div class="details">NPG: ${topPlayer.npg} | PG: ${topPlayer.pg} | Assists: ${topPlayer.assists} | MOTM: ${topPlayer.motm} | FM: ${topPlayer.fm}</div>
+                        </div>
+                    </div>
+                    <span class="points">${topPlayer.points} pts</span>
+                </div>
+            `;
+
+            // Top 10 players
+            const top10Players = sortedPlayers.slice(0, 10);
+            document.getElementById('top-players-list').innerHTML = top10Players.map((player, index) => `
+                <div class="leaderboard-item">
+                    <div class="player-info">
+                        <span class="rank">${index + 1}</span>
+                        <div>
+                            <div class="name">${player.name}</div>
+                            <div class="details">${player.club} <span class="league-badge ${getLeagueBadge(player.league)}">${player.league}</span></div>
+                        </div>
+                    </div>
+                    <span class="points">${player.points} pts</span>
+                </div>
+            `).join('');
+
+            // Player stats
+            const totalPlayers = players.length;
+            const avgScore = totalPlayers > 0 ? Math.round(players.reduce((sum, p) => sum + p.points, 0) / totalPlayers) : 0;
+            const highestScore = Math.max(...players.map(p => p.points));
+
+            document.getElementById('total-players').textContent = totalPlayers;
+            document.getElementById('avg-player-score').textContent = avgScore;
+            document.getElementById('highest-player-score').textContent = highestScore;
+        }
+
+        function populateExpertLeaderboard() {
+            const sortedExperts = [...experts].sort((a, b) => b.totalPoints - a.totalPoints);
+            
+            document.getElementById('expert-leaderboard-table').innerHTML = sortedExperts.map((expert, index) => `
+                <tr>
+                    <td><strong>${index + 1}</strong></td>
+                    <td><strong>${expert.name}</strong></td>
+                    <td>${expert.selectedPlayers.join(', ')}</td>
+                    <td><strong>${expert.totalPoints}</strong></td>
+                </tr>
+            `).join('');
+        }
+
+        function populatePlayerLeaderboard() {
+            const sortedPlayers = [...players].sort((a, b) => b.points - a.points);
+            
+            document.getElementById('player-leaderboard-table').innerHTML = sortedPlayers.map((player, index) => `
+                <tr>
+                    <td><strong>${index + 1}</strong></td>
+                    <td><strong>${player.name}</strong></td>
+                    <td>${player.club}</td>
+                    <td><span class="league-badge ${getLeagueBadge(player.league)}">${player.league}</span></td>
+                    <td>${player.npg}</td>
+                    <td>${player.pg}</td>
+                    <td>${player.assists}</td>
+                    <td>${player.motm}</td>
+                    <td>${player.fm}</td>
+                    <td>${player.yc}</td>
+                    <td>${player.rc}</td>
+                    <td><strong>${player.points}</strong></td>
+                </tr>
+            `).join('');
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            populateExpertDashboard();
+            populatePlayerDashboard();
+            populateExpertLeaderboard();
+            populatePlayerLeaderboard();
+        });
+    </script>
+</body>
+</html>
