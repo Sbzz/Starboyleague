@@ -212,7 +212,7 @@
     <div class="container">
         <div class="header">
             <h1>⚽ FBS StarBoy League ⚽</h1>
-            <p>NL Experts Championship Edition</p>
+            <p>NL Experts Championship Dashboard</p>
         </div>
 
         <div class="scoring-info">
@@ -228,10 +228,10 @@
                     <strong>Assists:</strong> 10 pts
                 </div>
                 <div class="scoring-item">
-                    <strong>MOTM:</strong> 5 pts
+                    <strong>FMP:</strong> 5 pts
                 </div>
                 <div class="scoring-item">
-                    <strong>FM:</strong> 5 pts
+                    <strong>MOTM:</strong> 5 pts
                 </div>
                 <div class="scoring-item">
                     <strong>YC:</strong> -5 pts
@@ -270,48 +270,91 @@
     </div>
 
     <script>
-        // Data from the analysis
+        // Updated data from the latest Excel analysis (32 experts, 48 players)
         const experts = [
-            { expert: "nateevs", players: ["Michael Olise", "Hugo Ekitike", "Lamine Yamal", "Cole Palmer", "Jude Bellingham"], totalPoints: 75 },
-            { expert: "Light Fc", players: ["Cole Palmer", "Kenan Yıldız", "Lamine Yamal", "Désiré Doué", "Julián Álvarez"], totalPoints: 70 },
-            { expert: "VicThory", players: ["Cole Palmer", "Lamine Yamal", "Mason Greenwood", "Benjamin Šeško", "Loïs Openda"], totalPoints: 50 },
-            { expert: "Capdan21", players: ["Cole Palmer", "Désiré Doué", "Bradley Barcola", "Lamine Yamal", "Michael Olise"], totalPoints: 50 },
-            { expert: "Bombblacks", players: ["Lamine Yamal", "Nick Woltemade", "Matheus Cunha", "Mason Greenwood", "Ademola Lookman"], totalPoints: 50 },
-            { expert: "iamoyindamola", players: ["Mason Greenwood", "Michael Olise", "Lamine Yamal", "Kenan Yıldız", "Bukayo Saka"], totalPoints: 50 },
-            { expert: "ouzo1", players: ["Benjamin Šeško", "Jamal Musiala", "Kenan Yıldız", "Nuno Mendez", "Lamine Yamal"], totalPoints: 50 },
-            { expert: "Enzo5", players: ["Michael Olise", "Lamine Yamal", "Kenan Yıldız", "Mason Greenwood"], totalPoints: 45 },
-            { expert: "ForValour", players: ["João Pedro", "Lamine Yamal", "Mason Greenwood", "Michael Olise", "Francesco Camarda"], totalPoints: 45 },
-            { expert: "Trevor012", players: ["Benjamin Šeško", "Mason Greenwood", "Lamine Yamal", "Randal Kolo Muani", "Rafael Leão"], totalPoints: 45 },
-            { expert: "StarchAndBanga", players: ["Cole Palmer", "Lamine Yamal", "Michael Olise", "Désiré Doué", "Moise Kean"], totalPoints: 45 },
-            { expert: "Amethyst101", players: ["Cole Palmer", "Désiré Doué", "Jonathan Davids", "Lamine Yamal", "Jonathan Burkardt"], totalPoints: 45 },
-            { expert: "Silentgroper", players: ["Alexander Isak", "Lamine Yamal", "Désiré Doué", "Kenan Yıldız", "Karim Adeyemi"], totalPoints: 40 },
-            { expert: "Realtord43", players: ["Jonathan David", "Lamine Yamal", "Nick Woltemade", "Désiré Doué", "João Pedro"], totalPoints: 40 },
-            { expert: "Gucciboy", players: ["Cole Palmer", "Mason Greenwood", "Michael Olise", "Rafael Leão", "Julián Álvarez"], totalPoints: 35 },
-            { expert: "MorataFC", players: ["Cole Palmer", "Nico Williams", "Bradley Barcola", "Michael Olise", "Matías Soulé"], totalPoints: 35 },
-            { expert: "timbros", players: ["Julián Álvarez", "Khvicha Kvaratskhelia", "Kenan Yıldız", "Michael Olise", "Morgan Rogers"], totalPoints: 30 },
-            { expert: "Zeusis", players: ["Michael Olise", "Désiré Doué", "Cole Palmer", "Désiré Doué", "Julián Álvarez"], totalPoints: 30 },
-            { expert: "Godx", players: ["Phil Foden", "Julián Álvarez", "Loïs Openda", "Mason Greenwood", "Rafael Leão"], totalPoints: 30 },
-            { expert: "drisham", players: ["Mason Greenwood", "Michael Olise", "Arda Güler", "Kenan Yıldız", "Cole Palmer"], totalPoints: 10 },
-            { expert: "SportsWeb", players: ["Cole Palmer", "Vinícius Júnior", "Michael Olise", "Rafael Leão", "Mason Greenwood"], totalPoints: 10 },
-            { expert: "Kimbeast", players: ["Bradley Barcola", "Cole Palmer", "Moise Kean", "Rómulo Cardoso", "Oihan Sancet"], totalPoints: 10 },
-            { expert: "andrewbaba44", players: ["Jonathan Burkardt", "Alex Baena", "Florian Wirtz", "Mason Greenwood", "Moise Kean"], totalPoints: 5 },
-            { expert: "Amoto94", players: ["Michael Olise", "Cole Palmer", "Ousmane Dembélé", "Endrick Felipe", "Ange-Yoan Bonny"], totalPoints: 5 },
-            { expert: "Capaldi", players: ["Florian Wirtz", "Folarin Biereth", "Michael Olise", "Vinícius Júnior", "Lorenzo Lucca"], totalPoints: 0 },
-            { expert: "Kushercain", players: ["Estêvão Willian", "Désiré Doué", "Michael Olise", "Arda Güler", "Kenan Yıldız"], totalPoints: 0 }
+            { expert: "ForValour", players: ["João Pedro", "Lamine Yamal", "Francesco Camarda", "Michael Olise", "Mason Greenwood"], totalPoints: 205 },
+            { expert: "iamoyindamola", players: ["Bukayo Saka", "Lamine Yamal", "Kenan Yildiz", "Michael Olise", "Mason Greenwood"], totalPoints: 185 },
+            { expert: "Enzo5", players: ["Cole Palmer", "Lamine Yamal", "Kenan Yildiz", "Michael Olise", "Mason Greenwood"], totalPoints: 175 },
+            { expert: "Maimakawa1", players: ["João Pedro", "Lamine Yamal", "Kenan Yildiz", "Michael Olise", "Désiré Doué"], totalPoints: 175 },
+            { expert: "Skimpledawg", players: ["Estêvão Willian", "Lamine Yamal", "Kenan Yildiz", "Michael Olise", "Mason Greenwood"], totalPoints: 175 },
+            { expert: "VicThory", players: ["Mohammed Kudus", "Lamine Yamal", "Nico Paz", "Loïs Openda", "Mason Greenwood"], totalPoints: 155 },
+            { expert: "nateevs", players: ["Cole Palmer", "Lamine Yamal", "Moise Kean", "Michael Olise", "Mason Greenwood"], totalPoints: 155 },
+            { expert: "SportsWeb", players: ["Cole Palmer", "Vinícius Júnior", "Kenan Yildiz", "Michael Olise", "Mason Greenwood"], totalPoints: 145 },
+            { expert: "Gucciboy", players: ["Cole Palmer", "Julián Álvarez", "Ange-Yoan Bonny", "Michael Olise", "Mason Greenwood"], totalPoints: 140 },
+            { expert: "drisham", players: ["Cole Palmer", "Arda Güler", "Kenan Yildiz", "Michael Olise", "Mason Greenwood"], totalPoints: 135 },
+            { expert: "Realtord43", players: ["João Pedro", "Lamine Yamal", "Jonathan David", "Nick Woltemade", "Désiré Doué"], totalPoints: 130 },
+            { expert: "Whizlight", players: ["Cole Palmer", "Lamine Yamal", "Kenan Yildiz", "Michael Olise", "Désiré Doué"], totalPoints: 130 },
+            { expert: "Dathypebruv", players: ["Cole Palmer", "Lamine Yamal", "Kenan Yildiz", "Michael Olise", "Désiré Doué"], totalPoints: 130 },
+            { expert: "Bombblacks", players: ["Bukayo Saka", "Lamine Yamal", "Moise Kean", "Nick Woltemade", "Mason Greenwood"], totalPoints: 125 },
+            { expert: "Amoto94", players: ["Cole Palmer", "Endrick Felipe", "Ange-Yoan Bonny", "Michael Olise", "Mason Greenwood"], totalPoints: 115 },
+            { expert: "Capdan21", players: ["Cole Palmer", "Lamine Yamal", "Charles De Ketelaere", "Michael Olise", "Bradley Barcola"], totalPoints: 110 },
+            { expert: "StarchAndBanga", players: ["Cole Palmer", "Lamine Yamal", "Moise Kean", "Michael Olise", "Désiré Doué"], totalPoints: 110 },
+            { expert: "timbros", players: ["Morgan Rogers", "Julián Álvarez", "Kenan Yildiz", "Michael Olise", "Khvicha Kvaratskhelia"], totalPoints: 105 },
+            { expert: "patrickmuf", players: ["Benjamin Šeško", "Lamine Yamal", "Evan Ferguson", "Nick Woltemade", "Mason Greenwood"], totalPoints: 105 },
+            { expert: "Trevor012", players: ["Benjamin Šeško", "Lamine Yamal", "Nikola Krstović", "Loïs Openda", "Mason Greenwood"], totalPoints: 100 },
+            { expert: "ouzo1", players: ["Benjamin Šeško", "Lamine Yamal", "Kenan Yildiz", "Jamal Musiala", "Nuno Mendez"], totalPoints: 95 },
+            { expert: "Kushercain", players: ["Estêvão Willian", "Arda Güler", "Kenan Yildiz", "Michael Olise", "Désiré Doué"], totalPoints: 90 },
+            { expert: "MorataFC", players: ["Cole Palmer", "Nico Williams", "Matías Soulé", "Michael Olise", "Bradley Barcola"], totalPoints: 85 },
+            { expert: "BlewMahn", players: ["Estêvão Willian", "Nico Williams", "Kenan Yildiz", "Nick Woltemade", "Emanuel Emegha"], totalPoints: 85 },
+            { expert: "Silentgroper", players: ["Alexander Isak", "Lamine Yamal", "Kenan Yildiz", "Karim Adeyemi", "Désiré Doué"], totalPoints: 80 },
+            { expert: "Amethyst101", players: ["Cole Palmer", "Lamine Yamal", "Jonathan David", "Jonathan Burkardt", "Désiré Doué"], totalPoints: 80 },
+            { expert: "Zeusis", players: ["Cole Palmer", "Julián Álvarez", "Charles De Ketelaere", "Michael Olise", "Désiré Doué"], totalPoints: 75 },
+            { expert: "dostr4", players: ["Cole Palmer", "Ander Barrenetxea", "Chico Conceição", "Michael Olise", "Désiré Doué"], totalPoints: 75 },
+            { expert: "Godx", players: ["Phil Foden", "Julián Álvarez", "Roberto Piccoli", "Loïs Openda", "Mason Greenwood"], totalPoints: 70 },
+            { expert: "Capaldi", players: ["Florian Wirtz", "Vinícius Júnior", "Lorenzo Lucca", "Michael Olise", "Mika Biereth"], totalPoints: 70 },
+            { expert: "andrewbaba44", players: ["Florian Wirtz", "Alex Baena", "Moise Kean", "Jonathan Burkardt", "Mason Greenwood"], totalPoints: 50 },
+            { expert: "Kimbeast", players: ["Cole Palmer", "Oihan Sancet", "Moise Kean", "Rómulo Cardoso", "Bradley Barcola"], totalPoints: 30 }
         ];
 
         const players = [
-            { name: "Lamine Yamal", NPG: 1, PG: 0, Assist: 1, MOTM: 1, FM: 1, Total: 40 },
-            { name: "Hugo Ekitike", NPG: 1, PG: 0, Assist: 1, MOTM: 0, FM: 0, Total: 30 },
-            { name: "Julián Álvarez", NPG: 1, PG: 0, Assist: 0, MOTM: 1, FM: 0, Total: 25 },
-            { name: "Nico Williams", NPG: 0, PG: 1, Assist: 1, MOTM: 0, FM: 0, Total: 25 },
-            { name: "Nuno Mendez", NPG: 0, PG: 0, Assist: 1, MOTM: 0, FM: 0, Total: 10 },
-            { name: "Bradley Barcola", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FM: 1, Total: 5 },
-            { name: "Bukayo Saka", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FM: 1, Total: 5 },
-            { name: "Cole Palmer", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FM: 1, Total: 5 },
-            { name: "Mason Greenwood", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FM: 1, Total: 5 },
-            { name: "Matheus Cunha", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FM: 1, Total: 5 },
-            { name: "Morgan Rogers", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FM: 1, Total: 5 }
+            { name: "Lamine Yamal", NPG: 1, PG: 0, Assist: 2, MOTM: 1, FMP: 2, YC: 0, RC: 0, Total: 55 },
+            { name: "João Pedro", NPG: 1, PG: 0, Assist: 2, MOTM: 1, FMP: 1, YC: 0, RC: 0, Total: 50 },
+            { name: "Mason Greenwood", NPG: 0, PG: 1, Assist: 2, MOTM: 0, FMP: 2, YC: 0, RC: 0, Total: 45 },
+            { name: "Michael Olise", NPG: 2, PG: 0, Assist: 0, MOTM: 0, FMP: 1, YC: 0, RC: 0, Total: 45 },
+            { name: "Nico Paz", NPG: 1, PG: 0, Assist: 1, MOTM: 1, FMP: 0, YC: 0, RC: 0, Total: 35 },
+            { name: "Nico Williams", NPG: 0, PG: 1, Assist: 1, MOTM: 1, FMP: 0, YC: 0, RC: 0, Total: 30 },
+            { name: "Ander Barrenetxea", NPG: 1, PG: 0, Assist: 0, MOTM: 0, FMP: 1, YC: 0, RC: 0, Total: 25 },
+            { name: "Julián Álvarez", NPG: 1, PG: 0, Assist: 0, MOTM: 0, FMP: 1, YC: 0, RC: 0, Total: 25 },
+            { name: "Kenan Yildiz", NPG: 0, PG: 0, Assist: 2, MOTM: 1, FMP: 0, YC: 0, RC: 0, Total: 25 },
+            { name: "Vinícius Júnior", NPG: 1, PG: 0, Assist: 1, MOTM: 0, FMP: 0, YC: 1, RC: 0, Total: 25 },
+            { name: "Ange-Yoan Bonny", NPG: 1, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 20 },
+            { name: "Emanuel Emegha", NPG: 0, PG: 1, Assist: 0, MOTM: 0, FMP: 1, YC: 0, RC: 0, Total: 20 },
+            { name: "Jonathan David", NPG: 1, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 20 },
+            { name: "Mohammed Kudus", NPG: 0, PG: 0, Assist: 2, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 20 },
+            { name: "Arda Güler", NPG: 0, PG: 0, Assist: 1, MOTM: 0, FMP: 1, YC: 0, RC: 0, Total: 15 },
+            { name: "Bukayo Saka", NPG: 0, PG: 0, Assist: 1, MOTM: 0, FMP: 1, YC: 0, RC: 0, Total: 15 },
+            { name: "Nuno Mendez", NPG: 0, PG: 0, Assist: 1, MOTM: 0, FMP: 1, YC: 0, RC: 0, Total: 15 },
+            { name: "Oihan Sancet", NPG: 0, PG: 1, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 15 },
+            { name: "Francesco Camarda", NPG: 0, PG: 0, Assist: 1, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 10 },
+            { name: "Morgan Rogers", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 2, YC: 0, RC: 0, Total: 10 },
+            { name: "Bradley Barcola", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 1, YC: 0, RC: 0, Total: 5 },
+            { name: "Cole Palmer", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 1, YC: 0, RC: 0, Total: 5 },
+            { name: "Estêvão Willian", NPG: 0, PG: 0, Assist: 1, MOTM: 0, FMP: 0, YC: 1, RC: 0, Total: 5 },
+            { name: "Moise Kean", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 1, YC: 0, RC: 0, Total: 5 },
+            { name: "Nick Woltemade", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 1, YC: 0, RC: 0, Total: 5 },
+            { name: "Alex Baena", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Alexander Isak", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Benjamin Šeško", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Chico Conceição", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Charles De Ketelaere", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Désiré Doué", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Eliesse Ben Seghir", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Endrick Felipe", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Evan Ferguson", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Florian Wirtz", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Jamal Musiala", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Jonathan Burkardt", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Karim Adeyemi", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Khvicha Kvaratskhelia", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Loïs Openda", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Lorenzo Lucca", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Matías Soulé", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Mika Biereth", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Nikola Krstović", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Phil Foden", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Roberto Piccoli", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Rómulo Cardoso", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 },
+            { name: "Samu Omorodion", NPG: 0, PG: 0, Assist: 0, MOTM: 0, FMP: 0, YC: 0, RC: 0, Total: 0 }
         ];
 
         // Populate Expert Dashboard (Top 5)
@@ -323,17 +366,19 @@
                 <div class="dashboard-item">
                     <div>
                         <div class="player-name">
-                            ${isTop ? '🏆 ' : ''}${expert.expert} (${playersText})
+                            ${isTop ? '🏆 ' : ''}${expert.expert}
                         </div>
+                        <div class="expert-players">${playersText}</div>
                     </div>
                     <div class="points">${expert.totalPoints}</div>
                 </div>
             `;
         });
 
-        // Populate Player Dashboard (Top 5)
+        // Populate Player Dashboard (Top 5 players with points)
         const playerDashboard = document.getElementById('player-dashboard');
-        players.slice(0, 5).forEach((player, index) => {
+        const topPlayers = players.filter(p => p.Total > 0).slice(0, 5);
+        topPlayers.forEach((player, index) => {
             const isTop = index === 0;
             playerDashboard.innerHTML += `
                 <div class="dashboard-item">
@@ -342,7 +387,7 @@
                             ${isTop ? '⭐ ' : ''}${player.name}
                         </div>
                         <div class="player-stats">
-                            NPG: ${player.NPG} | PG: ${player.PG} | Assist: ${player.Assist} | MOTM: ${player.MOTM} | FM: ${player.FM}
+                            NPG: ${player.NPG} | PG: ${player.PG} | Assist: ${player.Assist} | MOTM: ${player.MOTM} | FMP: ${player.FMP} | YC: ${player.YC} | RC: ${player.RC}
                         </div>
                     </div>
                     <div class="points">${player.Total}</div>
@@ -350,7 +395,7 @@
             `;
         });
 
-        // Populate Expert Leaderboard
+        // Populate Expert Leaderboard (All 32 experts)
         const expertLeaderboard = document.getElementById('expert-leaderboard');
         experts.forEach((expert, index) => {
             const isTop = index === 0;
@@ -371,9 +416,10 @@
             `;
         });
 
-        // Populate Player Leaderboard
+        // Populate Player Leaderboard (Only players with points > 0)
         const playerLeaderboard = document.getElementById('player-leaderboard');
-        players.forEach((player, index) => {
+        const playersWithPoints = players.filter(p => p.Total > 0);
+        playersWithPoints.forEach((player, index) => {
             const isTop = index === 0;
             playerLeaderboard.innerHTML += `
                 <div class="leaderboard-item">
@@ -384,7 +430,7 @@
                                 ${isTop ? '⭐ ' : ''}${player.name}
                             </div>
                             <div class="player-stats">
-                                NPG: ${player.NPG} | PG: ${player.PG} | Assist: ${player.Assist} | MOTM: ${player.MOTM} | FM: ${player.FM}
+                                NPG: ${player.NPG} | PG: ${player.PG} | Assist: ${player.Assist} | MOTM: ${player.MOTM} | FMP: ${player.FMP} | YC: ${player.YC} | RC: ${player.RC}
                             </div>
                         </div>
                     </div>
